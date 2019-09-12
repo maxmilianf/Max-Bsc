@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from './notes.model';
 import { DataService } from './data.service';
+import { DataStorageService } from './data-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,16 @@ import { DataService } from './data.service';
 export class AppComponent implements OnInit {
 
 
-  constructor() {
+  constructor(private dataStorage: DataStorageService) {
 
+  }
+
+  onSaveData() {
+    this.dataStorage.storeNotes();
+  }
+
+  onFetchData() {
+    this.dataStorage.fetchNotes();
   }
 
   ngOnInit() {

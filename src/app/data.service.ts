@@ -22,6 +22,18 @@ export class DataService {
         return this.notes[id];
     }
 
+    setNotes(notes: Note[]) {
+        console.log(notes)
+        this.notes = notes;
+        this.notesChanged.next(this.notes.slice());
+
+
+    }
+
+    getNotes() {
+        return this.notes.slice()
+    }
+
     addNote(note: Note) {
         this.notes.push(note);
         this.notesChanged.next(this.notes.slice());
