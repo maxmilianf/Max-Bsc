@@ -9,12 +9,15 @@ import { DataService } from '../data.service';
 })
 export class NotesComponent implements OnInit {
   notes: Note[];
+  title: string;
+  body: string;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    return this.dataService.getNotes()
-      .subscribe(data => this.notes = data);
+    this.notes = this.dataService.notes;
   }
+
+
 
 }

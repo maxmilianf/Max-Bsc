@@ -1,9 +1,16 @@
-<p>
-  notes works!
-</p>
-<div *ngFor="let note of notes" class="col-xs-12 col-lg-12">
-  <h3>{{note.title}}</h3>
-  <h5>{{note.id}}</h5>
-  <p>{{note.body}}</p>
-  <hr>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-xs-6 col-lg-6">
+      <h2>Notes</h2>
+      <hr>
+      <app-note-item *ngFor="let note of notes; let i = index" [index]="i" [note]=note></app-note-item>
+    </div>
+    <div class="col-xs-6 col-lg-6">
+      <h2>Note Detail</h2>
+      <hr>
+      <router-outlet></router-outlet>
+      <div class="col-xs-12 col-lg-12">
+      </div>
+    </div>
+  </div>
 </div>
