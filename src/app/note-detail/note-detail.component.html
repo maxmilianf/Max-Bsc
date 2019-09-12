@@ -2,7 +2,7 @@
   <h3>{{note.title}}</h3>
   <p><b>{{note.body}}</b></p>
 </div>
-<form [formGroup]="noteForm">
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
   <div *ngIf="editMode === true" class="col-xs-12 col-lg-12">
     <input type="text" class="form-control mb-2" formControlName="title" id="title">
     <textarea class="form-control" id="" cols="30" rows="10" formControlName="body" id="body"></textarea>
@@ -10,6 +10,6 @@
   <hr>
   <button *ngIf="editMode === false" class="btn btn-success mr-2" (click)="triggerEditMode()">EDIT</button>
   <button *ngIf="editMode === true" class="btn btn-primary mr-2" (click)="triggerEditMode()">CANCEL</button>
-  <button *ngIf="editMode === true" class="btn btn-success mr-2" (click)="onSubmit()">UPDATE</button>
+  <button *ngIf="editMode === true" class="btn btn-success mr-2" type="submit">UPDATE</button>
   <button class="btn btn-danger">DELETE</button>
 </form>
