@@ -22,6 +22,11 @@ export class NoteDetailComponent implements OnInit {
     this.editMode = !this.editMode;
   }
 
+  onDeleteNote() {
+    console.log(this.id)
+    this.dataService.deleteNote(this.id);
+  }
+
   onSubmit() {
     console.log(this.noteForm.value)
     this.dataService.updateNote(this.id, this.noteForm.value);

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Note } from './notes.model'
+import { Subject } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
 
 export class DataService {
+    notesChanged = new Subject<Note[]>();
+
     notes: Note[] = [
         new Note(
             "aut facere repellat provident occaecati excepturi optio reprehenderit",
@@ -22,14 +24,17 @@ export class DataService {
 
     addNote(note: Note) {
         this.notes.push(note);
+        this.notesChanged.next(this.notes.slice());
     }
 
     deleteNote(id: number) {
         this.notes.splice(id, 1);
+        this.notesChanged.next(this.notes.slice());
     }
 
     updateNote(index: number, newNote: Note) {
         this.notes[index] = newNote;
+        this.notesChanged.next(this.notes.slice());
     }
 
     constructor() { }
