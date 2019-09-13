@@ -8,8 +8,11 @@
     <textarea class="form-control" id="" cols="30" rows="10" formControlName="body" id="body"></textarea>
   </div>
   <hr>
-  <button *ngIf="editMode === true" class="btn btn-success mr-2 mb-2" type="submit">UPDATE</button>
+  <button *ngIf="editMode === true" class="btn btn-success mr-2 mb-2" type="submit"
+    translate>{{'UPDATE' | translate}}</button>
 </form>
-<button *ngIf="editMode === false" class="btn btn-success mr-2" (click)="triggerEditMode()">EDIT</button>
-<button *ngIf="editMode === true" class="btn btn-primary mr-2 " (click)="triggerEditMode()">CANCEL</button>
-<button class="btn btn-danger " (click)="onDeleteNote()" [routerLink]="'/notes'">DELETE</button>
+<button *ngIf="editMode === false" class="btn btn-success mr-2"
+  (click)="triggerEditMode()">{{'EDIT' | translate}}</button>
+<button *ngIf="editMode === true" class="btn btn-primary mr-2 "
+  (click)="triggerEditMode()">{{'CANCEL' | translate}}</button>
+<button class="btn btn-danger " (click)="onDeleteNote()" [routerLink]="'/notes'">{{'DELETE' | translate}}</button>

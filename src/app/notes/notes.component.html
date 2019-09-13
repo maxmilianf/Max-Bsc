@@ -1,19 +1,19 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-xs-6 col-lg-6">
-      <h2>Notes</h2>
+      <h2 translate>{{'NOTESTITTLE' | translate}}</h2>
       <hr>
-      <h6>Add new note</h6>
+      <h6 translate>{{'ADDNOTE' | translate}}</h6>
       <form [formGroup]="addNoteForm" (ngSubmit)="onSubmit()">
-        <input type="text" class="form-control" formControlName="title" placeholder="Title">
-        <textarea placeholder="Description" name="body" id="body" cols="30" rows="10" class="form-control mt-2"
+        <input type="text" class="form-control" formControlName="title" placeholder="...">
+        <textarea placeholder="......" name="body" id="body" cols="30" rows="10" class="form-control mt-2"
           formControlName="body"></textarea>
-        <button class="btn btn-success mt-2" type="submit">ADD NOTE</button>
+        <button class="btn btn-success mt-2" type="submit" translate>{{'ADDNOTE' | translate}}</button>
       </form>
       <app-note-item *ngFor="let note of notes; let i = index" [index]="i" [note]=note></app-note-item>
     </div>
     <div class="col-xs-6 col-lg-6">
-      <h2>Note Detail</h2>
+      <h2 translate>{{NOTESDETAIL | translate}}</h2>
       <hr>
       <router-outlet></router-outlet>
       <div class="col-xs-12 col-lg-12">

@@ -3,13 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DataService } from './data.service';
 import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { NotesComponent } from './notes/notes.component';
 import { NoSelectedNoteComponent } from './no-selected-note/no-selected-note.component';
 import { NoteItemComponent } from './notes/note-item/note-item.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -23,6 +30,13 @@ import { NoteItemComponent } from './notes/note-item/note-item.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     AppRoutingModule,
     HttpClientModule
   ],

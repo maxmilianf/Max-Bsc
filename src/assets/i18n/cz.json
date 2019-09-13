@@ -1,0 +1,13 @@
+{
+    "APPTITTLE": "BSC-Aplikace",
+    "NOTESTITTLE": "Seznam poznámek",
+    "NOTESDETAIL": "Detail poznámky",
+    "SELECTNOTE": "Prosím, vyberte poznánku",
+    "ADDNOTE": "Přidat novou poznámku",
+    "SAVEDATA": "Uložit data",
+    "FETCHDATA": "stáhnout data",
+    "EDIT": "EDITOVAT",
+    "DELETE": "SMAZAT",
+    "CANCEL": "UKONČIT",
+    "UPDATE": "EDITOVAT"
+}

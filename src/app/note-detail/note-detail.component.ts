@@ -3,6 +3,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Note } from '../notes.model';
 import { DataService } from '../data.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+
 
 
 @Component({
@@ -16,7 +18,9 @@ export class NoteDetailComponent implements OnInit {
   noteForm: FormGroup;
   editMode = false;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute, private translateService: TranslateService) {
+    translateService.setDefaultLang('en');
+  }
 
   triggerEditMode() {
     this.editMode = !this.editMode;

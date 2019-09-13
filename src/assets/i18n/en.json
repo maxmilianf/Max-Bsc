@@ -1,0 +1,13 @@
+{
+    "APPTITTLE": "BSC-Application",
+    "NOTESTITTLE": "List of Notes",
+    "NOTESDETAIL": "Notes Detail",
+    "SELECTNOTE": "Please, select a note",
+    "ADDNOTE": "Add new note",
+    "SAVEDATA": "Save data",
+    "FETCHDATA": "Fetch data",
+    "EDIT": "EDIT",
+    "DELETE": "DELETE",
+    "CANCEL": "CANCEL",
+    "UPDATE": "UPDATE"
+}

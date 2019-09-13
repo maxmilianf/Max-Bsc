@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from '../notes.model';
 import { DataService } from '../data.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-notes',
@@ -14,7 +15,10 @@ export class NotesComponent implements OnInit {
   body: string;
   addNoteForm: FormGroup;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private translateService: TranslateService) {
+    translateService.setDefaultLang('en');
+  }
+
   onSubmit() {
     console.log(this.addNoteForm.value)
     const newNote = new Note(this.addNoteForm.value['title'], this.addNoteForm.value['body'])
