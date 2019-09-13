@@ -1,7 +1,7 @@
-# Spuštění aplikace 
-npm install 
-npm start
-
+# Pro Instalaci
+npm install
+# Pro spuštění aplikace
+npm start `http://localhost:9000/`
 
 # MaxBscApp
 
