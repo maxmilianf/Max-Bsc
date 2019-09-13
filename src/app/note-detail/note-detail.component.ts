@@ -4,6 +4,7 @@ import { Note } from '../notes.model';
 import { DataService } from '../data.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { DataStorageService } from '../data-storage.service';
 
 
 
@@ -18,7 +19,11 @@ export class NoteDetailComponent implements OnInit {
   noteForm: FormGroup;
   editMode = false;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private translateService: TranslateService) {
+  constructor(private dataService: DataService,
+    private route: ActivatedRoute,
+    private translateService: TranslateService,
+    private dataStorage: DataStorageService,
+  ) {
     translateService.setDefaultLang('en');
   }
 
@@ -29,12 +34,14 @@ export class NoteDetailComponent implements OnInit {
   onDeleteNote() {
     console.log(this.id)
     this.dataService.deleteNote(this.id);
+    this.dataStorage.storeNotes();
   }
 
   onSubmit() {
     console.log(this.noteForm.value)
     this.dataService.updateNote(this.id, this.noteForm.value);
     this.editMode = false;
+    this.dataStorage.storeNotes();
 
   }
 

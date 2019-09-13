@@ -13,7 +13,7 @@
       <app-note-item *ngFor="let note of notes; let i = index" [index]="i" [note]=note></app-note-item>
     </div>
     <div class="col-xs-6 col-lg-6">
-      <h2 translate>{{NOTESDETAIL | translate}}</h2>
+      <h2 translate>{{'NOTESDETAIL' | translate}}</h2>
       <hr>
       <router-outlet></router-outlet>
       <div class="col-xs-12 col-lg-12">

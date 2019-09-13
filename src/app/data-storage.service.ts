@@ -12,7 +12,7 @@ export class DataStorageService {
         const notes = this.dataService.getNotes();
         this.http.put('https://bsc-max-app.firebaseio.com/notes.json', notes)
             .subscribe(response => {
-                console.log(response, "HERE");
+                console.log(response, "SAVED TO FIREBASE");
             })
     }
 
@@ -20,7 +20,7 @@ export class DataStorageService {
         this.http.get<Note[]>('https://bsc-max-app.firebaseio.com/notes.json')
             .subscribe(notes => {
                 this.dataService.setNotes(notes);
-                console.log(notes);
+                console.log(notes, "LOADED FROM FIREBASE");
             })
     }
 }
